@@ -1,0 +1,20 @@
+{
+  "name": "smile",
+  "version": "1.0.0",
+  "description": "Machine learning cranio-facial surgery quality software",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bacco1977/smile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bacco1977/smile/issues"
+  },
+  "homepage": "https://github.com/bacco1977/smile#readme"
+}
