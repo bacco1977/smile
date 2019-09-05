@@ -1,7 +1,9 @@
 from flask import *
 from flask import jsonify
 from model_draft import main
+from flask_cors import CORS
 app = Flask(__name__)
+cors = CORS(app)
 
 posts = [
     {
@@ -24,7 +26,7 @@ posts = [
 ]
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home", methods=["GET","POST"])
 def hello():
     return jsonify(posts)
 
