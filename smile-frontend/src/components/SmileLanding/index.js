@@ -34,7 +34,7 @@ export default class SmileLanding extends React.Component {
       });
     } else {
       let values = this.state.sortedValues;
-      values = values.filter(value => value.name.toUpperCase().includes(event.target.value.toUpperCase()));
+      values = values.filter(value => (value.name.toUpperCase().includes(event.target.value.toUpperCase())) || (value.pps.toUpperCase().includes(event.target.value.toUpperCase())));
   
       this.setState({
         sortedValues: values
@@ -47,7 +47,7 @@ export default class SmileLanding extends React.Component {
       <div className="container">
         <h2 className={styles.pageTitle}>Smile Landing Page</h2>
         <div className="row justify-content-center m-3">
-          <input className="form-control" placeholder="Search by name" type="text" name ="pps" onChange={this.onFormChange}/>
+          <input className="form-control" placeholder="Search by Name or PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
         </div>
         {this.state.sortedValues &&
           <table className="table mt-5">
