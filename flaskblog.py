@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask import jsonify
 app = Flask(__name__)
 
 posts = [
@@ -24,7 +25,7 @@ posts = [
 @app.route("/")
 @app.route("/home")
 def hello():
-    return render_template('home.html', posts=posts)
+    return jsonify(posts)
 
 @app.route("/about")
 def about():
