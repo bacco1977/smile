@@ -19,7 +19,7 @@ export default class ImageUpload extends React.Component {
     fileUploadHandler= () =>{
         const data = new FormData;
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
-        axios.post('http://localhost:5000/success', data, {
+        axios.post('http://localhost:5000/upload/', data, {
             onUploadProgress: progressEvent =>{
                 console.log((progressEvent.loaded/progressEvent.total) * 100 +"%");
             }

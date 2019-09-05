@@ -20,6 +20,7 @@ UPLOAD_FOLDER = '/Users/smrverma/workspace/ImpactDay/smile'
 app = Flask(__name__)
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 cors = CORS(app)
 
 posts = [
@@ -43,7 +44,7 @@ posts = [
 ]
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home", methods=["GET","POST"])
 def hello():
     return jsonify(posts)
 
