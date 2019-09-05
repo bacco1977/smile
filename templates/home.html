@@ -4,6 +4,9 @@
     <title></title>
 </head>
 <body>
-    <h1>Home Page</h1>
+    {% for post in posts %}
+        <h1>{{post.name}}</h1>
+        <p>Born on {{post.dob}}</p>
+    {% endfor %}
 </body>
 </html>
