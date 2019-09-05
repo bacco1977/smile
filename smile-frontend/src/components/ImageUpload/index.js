@@ -7,12 +7,14 @@ export default class ImageUpload extends React.Component {
 
         this.state ={
             fileUploaded: null,
+            imgPreview: null,
         }
     }
 
     fileSelected = (event) =>{
         this.setState({
             fileUploaded: event.target.files[0],
+            imgPreview: URL.createObjectURL(event.target.files[0])
         });
     }
 
@@ -35,6 +37,7 @@ export default class ImageUpload extends React.Component {
                 <h1 className="mb-4">Upload your image here</h1>
                 <input type="file" onChange={this.fileSelected}/>
                 <button className="btn btn-secondary mt-3 w-25" onClick={this.fileUploadHandler}>Upload</button>
+                {this.state.imgPreview && <img src={this.state.imgPreview} className="img-fluid" alt="Preview"/>}
             </div>
         );
   }
