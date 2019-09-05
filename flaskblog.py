@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import *
 from flask import jsonify
+from model_draft import main
 app = Flask(__name__)
 
 posts = [
@@ -27,9 +28,14 @@ posts = [
 def hello():
     return jsonify(posts)
 
-@app.route("/about")
-def about():
-    return "<h1>About Us</h1>"
+@app.route("/upload", methods = ['POST'])
+def register():
+    if request.method == 'POST': 
+        f = request.files['file']  
+        f.save(f.filename)  
+        return f.filename
+#    score = main(image_path)
+#    return score
 
 #    name = request.args.get("name", "World")
 #    return f'Hello, {escape(name)}!'
