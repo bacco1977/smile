@@ -33,7 +33,39 @@ posts = [
      'parent':'Pradeep'
     },
      {
-     'name':'Smriti',
+     'name':'Bob',
+     'dob':'28-03-1992',
+     'register_date':'01-01-2019',
+     'sex':'Male',
+     'pps':'12345',
+     'parent':'Pradeep'
+    },
+    {
+     'name':'Phoebe',
+     'dob':'28-03-1992',
+     'register_date':'01-01-2019',
+     'sex':'Female',
+     'pps':'12345',
+     'parent':'Pradeep'
+    },
+     {
+     'name':'Fellyph',
+     'dob':'28-03-1992',
+     'register_date':'01-01-2019',
+     'sex':'Male',
+     'pps':'12345',
+     'parent':'Pradeep'
+    },
+    {
+     'name':'Andrew',
+     'dob':'28-03-1992',
+     'register_date':'01-01-2019',
+     'sex':'Male',
+     'pps':'12345',
+     'parent':'Pradeep'
+    },
+     {
+     'name':'Priya',
      'dob':'28-03-1992',
      'register_date':'01-01-2019',
      'sex':'Female',
