@@ -27,7 +27,6 @@ export default class ImageUpload extends React.Component {
                 console.log((progressEvent.loaded/progressEvent.total) * 100 +"%");
             },
             headers: { 
-                'x-apikey': '59a7ad19f5a9fa0808f11931',
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             },
@@ -46,7 +45,7 @@ export default class ImageUpload extends React.Component {
                     <input type="file" onChange={this.fileSelected}/>
                 </div>
                 <div className="row justify-content-center">
-                    <button className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
+                    <button disabled={!this.state.fileUploaded} className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
                 </div>
             </div>
         );
