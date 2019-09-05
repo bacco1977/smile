@@ -34,7 +34,7 @@ export default class SmileLanding extends React.Component {
       });
     } else {
       let values = this.state.sortedValues;
-      values = values.filter(value => value.name.includes(event.target.value));
+      values = values.filter(value => value.name.toUpperCase().includes(event.target.value.toUpperCase()));
   
       this.setState({
         sortedValues: values
