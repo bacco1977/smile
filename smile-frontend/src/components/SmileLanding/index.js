@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './SmileLanding.module.css';
 
 export default function SmileLanding() {
   return ( 
     <div className="container">
-      <h2>Smile Landing Page</h2>
+      <h2 className={styles.pageTitle}>Smile Landing Page</h2>
       <table className="table">
         <thead>
           <tr>
