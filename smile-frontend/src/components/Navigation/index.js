@@ -12,11 +12,12 @@ export default class Navigation extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/#/"> 
-            <img src="./assets/img/craniofacial-logo.png" alt="Smile Landing Page" />
-          </a>
-          <ul className="navbar-nav mr-auto">
+      <div className="row align-items-center">
+        <a className="navbar-brand col" href="/#/"> 
+          <img src="./assets/img/craniofacial-logo.png" alt="Smile Landing Page" />
+        </a>
+        <nav className="col">
+          <ul className="nav">
             <li className="nav-item">
                 <button className="btn btn-link" onClick={this.navigateToUpload}>Image Upload</button>
             </li>
@@ -24,7 +25,8 @@ export default class Navigation extends React.Component {
               <button className="btn btn-link" onClick={this.navigateToSearch}>Search</button>
             </li>
           </ul>
-    </nav>
+        </nav>
+      </div>
     );
   }
 }

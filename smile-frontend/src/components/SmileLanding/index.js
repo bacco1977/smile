@@ -4,7 +4,7 @@ export default function SmileLanding() {
   return ( 
     <div className="container">
       <h2>Smile Landing Page</h2>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
