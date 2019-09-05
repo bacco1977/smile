@@ -20,7 +20,7 @@ export default class ImageUpload extends React.Component {
     }
 
     fileUploadHandler= () =>{
-        const data = new FormData;
+        const data = new FormData();
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
         axios.post('http://localhost:5000/api/success', data, {
             onUploadProgress: progressEvent =>{
@@ -40,13 +40,13 @@ export default class ImageUpload extends React.Component {
     render() {
         return (
             <div className="d-flex justify-content-between flex-column">
-                <h1 className="mb-4">Upload your image here</h1>
+                <h2 className={styles.pageTitle}>Upload your image here</h2>
                 {this.state.imgPreview && <img src={this.state.imgPreview} className={styles.imgPreview} alt="Preview"/>}
                 <div className="row justify-content-center">
                     <input type="file" onChange={this.fileSelected}/>
                 </div>
                 <div className="row justify-content-center">
-                    <button className="btn btn-secondary mt-3 w-25" onClick={this.fileUploadHandler}>Upload</button>
+                    <button className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
                 </div>
             </div>
         );

@@ -4,3 +4,18 @@
     max-width: 100%;
     margin: 1em auto;
 }
+
+.uploadButton {
+    background: #f89422;
+    color: #fff;
+    border: none;
+    border-radius: 2em;
+    width: 25%;
+    padding: 1em;
+    margin: 2em 0;
+}
+
+.pageTitle {
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+}
