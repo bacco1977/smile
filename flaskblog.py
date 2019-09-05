@@ -12,6 +12,9 @@ from flask import jsonify
 from model_draft import main
 from flask_cors import CORS
 from form import UploadForm
+from database import DB
+from jobs import Patient 
+
 
 """
 Please update UPLOAD_FOLDER location with your local file system
@@ -19,6 +22,7 @@ Please update UPLOAD_FOLDER location with your local file system
 UPLOAD_FOLDER = '/Users/smrverma/workspace/ImpactDay/smile' 
 
 app = Flask(__name__)
+DB.init()
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -29,7 +33,7 @@ posts = [
      'name':'Smriti',
      'dob':'28-03-1992',
      'register_date':'01-01-2019',
-     'sex':'Female',
+     'gender':'Female',
      'pps':'12345',
      'parent':'Pradeep'
     },
@@ -37,7 +41,7 @@ posts = [
      'name':'Smriti',
      'dob':'28-03-1992',
      'register_date':'01-01-2019',
-     'sex':'Female',
+     'gender':'Female',
      'pps':'12345',
      'parent':'Pradeep'
     }
@@ -65,6 +69,14 @@ def success():
 def register():  
     form = UploadForm()
     return render_template("file_upload_form.html", form=form)  
+
+
+@app.route('/add_record')
+def add_record():
+    """Adds patients to the database."""
+    new_patient = Patient(name='Smriti',dob='28-03-1992',register_date='01-01-2019', gender='Female',pps='12345',guardian='Pradeep')
+    new_patient.insert()                                                                                                                                                         
+    return ('', 204)
     
 if __name__ == '__main__':
     app.run(debug=True)
