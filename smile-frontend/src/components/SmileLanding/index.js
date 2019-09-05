@@ -74,7 +74,7 @@ export default class SmileLanding extends React.Component {
               <tbody>
                 {this.state.sortedValues.map((value, index) => (
                   <tr>
-                    <th className="btn btn-link" onClick={() => this.selectPatient(value)}>{value.name}</th>
+                    <th className="btn-link" onClick={() => this.selectPatient(value)}>{value.name}</th>
                     <td>{value.dob}</td>
                     <td>{value.register_date}</td>
                     <td>{value.sex}</td>
