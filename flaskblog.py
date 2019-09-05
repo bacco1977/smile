@@ -11,6 +11,10 @@ from flask import *
 from flask import jsonify
 from model_draft import main
 from flask_cors import CORS, cross_origin
+from end_to_end_draft9 import score
+from database import DB
+from jobs import Patient 
+
 
 """
 Please update UPLOAD_FOLDER location with your local file system
@@ -85,10 +89,10 @@ def hello():
 @cross_origin()
 def api_list():
     return jsonify(posts)
-
-@app.route('/image')  
-def image():  
-    return render_template("file_upload_form.html")  
+#
+#@app.route('/image')  
+#def image():  
+#    return render_template("file_upload_form.html")  
 
 
 @app.route('/api/success', methods = ['POST'])
@@ -100,16 +104,23 @@ def success():
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         resp = make_response(json.dumps("Success"))
         resp.status_code = 201
-        return 'File uploaded on the server'
+        image = './uploaded_images/'+f.filename
+        print ("image: " + image)
+        scorevalue = 1-score(image)
+        print ("scorevalue: " + str(scorevalue))
+        print ("score: "+str(scorevalue*100))
+        return str(scorevalue*100)
     return ''
 #    score = main(image_path)
 #    return score
 
     
-@app.route('/register')  
-def register():  
-    form = UploadForm()
-    return render_template("file_upload_form.html", form=form)  
+@app.route('/add_record')
+def add_record():
+    """Adds patients to the database."""
+    new_patient = Patient(name='Smriti',dob='28-03-1992',register_date='01-01-2019', gender='Female',pps='12345',guardian='Pradeep')
+    new_patient.insert()                                                                                                                                                         
+    return ('', 204)
     
 if __name__ == '__main__':
     app.run(debug=True)

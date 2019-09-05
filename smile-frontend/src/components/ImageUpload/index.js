@@ -15,7 +15,8 @@ export default class ImageUpload extends React.Component {
             guardian: null, 
             dob: null,
             registration: null,
-            gender: null
+            gender: null,
+            score: null
         }
     }
 
@@ -53,6 +54,9 @@ export default class ImageUpload extends React.Component {
         })
         .then(res => {
             console.log(res);
+            this.setState({
+                score : res.data
+            });
         });
     }
 
@@ -109,6 +113,9 @@ export default class ImageUpload extends React.Component {
                             <button disabled={!this.checkValid()} className={styles.sendButton} onClick={this.fileUploadHandler}>Submit</button>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <h2 className={styles.pageTitle} style={this.state.score ? {} : { display: 'none' }}>The percentage of symmetry is {this.state.score}%</h2>
                 </div>
             </div>
         );
