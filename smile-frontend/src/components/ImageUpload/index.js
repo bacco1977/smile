@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './ImageUpload.module.css';
 
 export default class ImageUpload extends React.Component {
     constructor(props){
@@ -7,12 +8,14 @@ export default class ImageUpload extends React.Component {
 
         this.state ={
             fileUploaded: null,
+            imgPreview: './assets/img/placeholder.jpg',
         }
     }
 
     fileSelected = (event) =>{
         this.setState({
             fileUploaded: event.target.files[0],
+            imgPreview: URL.createObjectURL(event.target.files[0])
         });
     }
 
@@ -33,8 +36,13 @@ export default class ImageUpload extends React.Component {
         return (
             <div className="d-flex justify-content-between flex-column">
                 <h1 className="mb-4">Upload your image here</h1>
-                <input type="file" onChange={this.fileSelected}/>
-                <button className="btn btn-secondary mt-3 w-25" onClick={this.fileUploadHandler}>Upload</button>
+                {this.state.imgPreview && <img src={this.state.imgPreview} className={styles.imgPreview} alt="Preview"/>}
+                <div className="row justify-content-center">
+                    <input type="file" onChange={this.fileSelected}/>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn btn-secondary mt-3 w-25" onClick={this.fileUploadHandler}>Upload</button>
+                </div>
             </div>
         );
   }
