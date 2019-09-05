@@ -14,18 +14,19 @@ export default class ImageUpload extends React.Component {
         this.setState({
             fileUploaded: event.target.files[0],
         });
-        console.log(event.target.files[0]);
     }
 
     fileUploadHandler= () =>{
         const data = new FormData;
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
-        axios.post('http://localhost:5000/', data)
+        axios.post('http://localhost:5000/', data, {
+            onUploadProgress: progressEvent =>{
+                console.log((progressEvent.loaded/progressEvent.total) * 100 +"%");
+            }
+        })
         .then(res => {
-            console.log(res)
+            console.log(res);
         });
-
-        console.log(data);
     }
 
     render() {
