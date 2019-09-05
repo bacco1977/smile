@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SmileLanding() {
   return ( 
-    <div className="d-flex justify-content-between">
+    <div className="container">
       <h2>Smile Landing Page</h2>
       <table class="table">
         <thead>
