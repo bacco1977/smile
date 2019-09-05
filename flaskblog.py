@@ -11,6 +11,7 @@ from flask import *
 from flask import jsonify
 from model_draft import main
 from flask_cors import CORS
+from form import UploadForm
 
 """
 Please update UPLOAD_FOLDER location with your local file system
@@ -59,9 +60,11 @@ def success():
         f = request.files['file']  
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         return 'File uploaded on the server'
-#    score = main(image_path)
-#    return score
-
+    
+@app.route('/register')  
+def register():  
+    form = UploadForm()
+    return render_template("file_upload_form.html", form=form)  
     
 if __name__ == '__main__':
     app.run(debug=True)
