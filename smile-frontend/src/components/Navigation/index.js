@@ -18,13 +18,13 @@ export default class Navigation extends React.Component {
           <a className="navbar-brand col" href="/#/"> 
             <img src="./assets/img/craniofacial-logo.png" alt="Smile Landing Page" />
           </a>
-          <nav className="col">
+          <nav className={style.menu}>
             <ul className="nav">
               <li className="nav-item">
-                  <button className="btn btn-link" onClick={this.navigateToUpload}>Image Upload</button>
+                  <button className={style.btnMenu} onClick={this.navigateToUpload}>Image Upload</button>
               </li>
               <li className="nav-item">
-                <button className="btn btn-link" onClick={this.navigateToSearch}>Search</button>
+                <button className={style.btnMenu} onClick={this.navigateToSearch}>Search</button>
               </li>
             </ul>
           </nav>
