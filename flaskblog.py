@@ -10,18 +10,18 @@ import os
 from flask import *
 from flask import jsonify
 from model_draft import main
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 """
 Please update UPLOAD_FOLDER location with your local file system
 """
-UPLOAD_FOLDER = '/Users/smrverma/workspace/ImpactDay/smile' 
+UPLOAD_FOLDER = './uploaded_images' 
 
 app = Flask(__name__)
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-cors = CORS(app)
+cors = CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "*"}})
 
 posts = [
     {
@@ -45,6 +45,7 @@ posts = [
 
 @app.route("/")
 @app.route("/home", methods=["GET","POST"])
+@cross_origin()
 def hello():
     return jsonify(posts)
 
@@ -53,12 +54,17 @@ def image():
     return render_template("file_upload_form.html")  
 
 
-@app.route('/success', methods = ['POST'])  
-def success():  
-    if request.method == 'POST': 
-        f = request.files['file']  
+@app.route('/api/success', methods = ['POST'])
+@cross_origin()
+def success():
+    if request.method == 'POST':
+        print(request.files)
+        f = request.files['image']  
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
+        resp = make_response(json.dumps("Success"))
+        resp.status_code = 201
         return 'File uploaded on the server'
+    return ''
 #    score = main(image_path)
 #    return score
 
