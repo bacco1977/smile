@@ -44,9 +44,14 @@ posts = [
 ]
 
 @app.route("/")
-@app.route("/home", methods=["GET","POST"])
+@app.route("/home", methods=['GET','POST'])
 @cross_origin()
 def hello():
+    return jsonify(posts)
+
+@app.route("/api/list", methods=['GET'])
+@cross_origin()
+def api_list():
     return jsonify(posts)
 
 @app.route('/image')  
