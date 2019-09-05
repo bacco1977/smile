@@ -14,7 +14,7 @@ export default class Navigation extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="/#/"> 
-            <img src="http://www.craniofacial.ie/wp-content/themes/Craniofacial/img/HEADER_LOGO_landscape.png" alt="Smile Landing Page" />
+            <img src="./assets/img/craniofacial-logo.png" alt="Smile Landing Page" />
           </a>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
