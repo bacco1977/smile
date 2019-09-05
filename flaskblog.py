@@ -11,7 +11,6 @@ from flask import *
 from flask import jsonify
 from model_draft import main
 from flask_cors import CORS, cross_origin
-from form import UploadForm
 
 """
 Please update UPLOAD_FOLDER location with your local file system
