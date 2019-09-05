@@ -9,19 +9,39 @@ export default class ImageUpload extends React.Component {
         this.state ={
             fileUploaded: null,
             imgPreview: './assets/img/placeholder.jpg',
+            username: null, 
+            email: null,
+            pps: null, 
+            guardian: null, 
+            dob: null,
+            registration: null,
+            gender: null
         }
     }
 
-    fileSelected = (event) =>{
-        this.setState({
-            fileUploaded: event.target.files[0],
-            imgPreview: URL.createObjectURL(event.target.files[0])
-        });
+    onFormChange = (event) =>{
+        if(event.target.name === 'image'){
+            this.setState({
+                fileUploaded: event.target.files[0],
+                imgPreview: URL.createObjectURL(event.target.files[0])
+            });
+        } else {
+            this.setState({
+                [event.target.name] : [event.target.value]
+            });
+        }
     }
 
     fileUploadHandler= () =>{
         const data = new FormData();
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
+        data.append('username', this.state.username)
+        data.append('email', this.state.email)
+        data.append('pps', this.state.pps)
+        data.append('guardian', this.state.guardian)
+        data.append('dob', this.state.dob)
+        data.append('registration', this.state.registration)
+        data.append('gender', this.state.gender)
         axios.post('http://localhost:5000/api/success', data, {
             onUploadProgress: progressEvent =>{
                 console.log((progressEvent.loaded/progressEvent.total) * 100 +"%");
@@ -36,16 +56,52 @@ export default class ImageUpload extends React.Component {
         });
     }
 
+    checkValid = () =>{
+        if(
+            !this.state.fileUploaded ||
+            !this.state.username ||
+            !this.state.email ||
+            !this.state.pps ||
+            !this.state.guardian || 
+            !this.state.dob ||
+            !this.state.registration ||
+            !this.state.gender
+        ){
+            return false;
+        } else return true;
+    }
+
     render() {
         return (
             <div className="d-flex justify-content-between flex-column">
                 <h2 className={styles.pageTitle}>Upload your image here</h2>
                 {this.state.imgPreview && <img src={this.state.imgPreview} className={styles.imgPreview} alt="Preview"/>}
-                <div className="row justify-content-center">
-                    <input type="file" onChange={this.fileSelected}/>
+                <div className="row justify-content-center mt-3">
+                    <input type="file" name ="image" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="user name" type="text" name ="username" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="email" type="email" name ="email" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
+                </div>
+                <div className="row justify-content-center mt-3">
+                    <input className="form-control" placeholder="Registration date" name ="registration" type="date" onChange={this.onFormChange}/>
                 </div>
                 <div className="row justify-content-center">
-                    <button disabled={!this.state.fileUploaded} className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
+                    <button disabled={!this.checkValid()} className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
                 </div>
             </div>
         );
