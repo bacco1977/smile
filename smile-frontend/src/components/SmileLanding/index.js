@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SmileLanding.module.css';
 import axios from 'axios';
+import Profile from '../Profile';
 
 export default class SmileLanding extends React.Component {
   constructor(props){
@@ -8,7 +9,8 @@ export default class SmileLanding extends React.Component {
 
     this.state ={
       values: [],
-      sortedValues: []
+      sortedValues: [],
+      selectedPatient: null
     }
   }
 
@@ -42,38 +44,50 @@ export default class SmileLanding extends React.Component {
     }
   }
 
+  selectPatient = (patient) =>{
+    this.setState({
+      selectedPatient: patient
+    })
+  }
+
+
   render() {
     return ( 
       <div className="container">
-        <h2 className={styles.pageTitle}>Smile Landing Page</h2>
-        <div className="row justify-content-center m-3">
-          <input className="form-control" placeholder="Search by Name or PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
-        </div>
-        {this.state.sortedValues &&
-          <table className="table mt-5">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">DOB</th>
-                <th scope="col">Registration</th>
-                <th scope="col">Sex</th>
-                <th scope="col">PPS</th>
-                <th scope="col">Guardian</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.sortedValues.map((value, index) => (
+        <h2 className={styles.pageTitle}>{this.state.selectedPatient ? "Profile" : "Patient Search"}</h2>
+        {this.state.sortedValues && !this.state.selectedPatient &&
+        <div>
+            <div className="row justify-content-center m-3">
+              <input className="form-control" placeholder="Search by Name or PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+            </div>
+            <table className="table mt-5">
+              <thead>
                 <tr>
-                  <th>{value.name}</th>
-                  <td>{value.dob}</td>
-                  <td>{value.register_date}</td>
-                  <td>{value.sex}</td>
-                  <td>{value.pps}</td>
-                  <td>{value.parent}</td>
+                  <th scope="col">Name</th>
+                  <th scope="col">DOB</th>
+                  <th scope="col">Registration</th>
+                  <th scope="col">Sex</th>
+                  <th scope="col">PPS</th>
+                  <th scope="col">Guardian</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {this.state.sortedValues.map((value, index) => (
+                  <tr>
+                    <th className="btn btn-link" onClick={() => this.selectPatient(value)}>{value.name}</th>
+                    <td>{value.dob}</td>
+                    <td>{value.register_date}</td>
+                    <td>{value.sex}</td>
+                    <td>{value.pps}</td>
+                    <td>{value.parent}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        }
+        {this.state.selectedPatient &&
+        <Profile patient={this.state.selectedPatient}/>
         }
       </div>
     );
