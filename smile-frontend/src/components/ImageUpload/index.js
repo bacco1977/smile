@@ -75,33 +75,40 @@ export default class ImageUpload extends React.Component {
         return (
             <div className="d-flex justify-content-between flex-column">
                 <h2 className={styles.pageTitle}>Upload your image here</h2>
-                {this.state.imgPreview && <img src={this.state.imgPreview} className={styles.imgPreview} alt="Preview"/>}
-                <div className="row justify-content-center mt-3">
-                    <input type="file" name ="image" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="user name" type="text" name ="username" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="email" type="email" name ="email" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="gender" type="text" name ="gender" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center mt-3">
-                    <input className="form-control" placeholder="Registration date" name ="registration" type="date" onChange={this.onFormChange}/>
-                </div>
-                <div className="row justify-content-center">
-                    <button disabled={!this.checkValid()} className={styles.uploadButton} onClick={this.fileUploadHandler}>Upload</button>
+                <div className="row">
+                    <div className="col-sm">
+                        {this.state.imgPreview && <img src={this.state.imgPreview} className={styles.imgPreview} alt="Preview"/>}
+                        <div className={styles.uploadWrapper}>
+                            <button className={styles.uploadButton}>Upload image</button>
+                            <input type="file" name ="image" onChange={this.onFormChange}/>
+                        </div>
+                    </div>
+                    <div className="col-sm">
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="user name" type="text" name ="username" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="email" type="email" name ="email" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row justify-content-center mt-3">
+                            <input className="form-control" placeholder="Registration date" name ="registration" type="date" onChange={this.onFormChange}/>
+                        </div>
+                        <div className="row">
+                            <button disabled={!this.checkValid()} className={styles.sendButton} onClick={this.fileUploadHandler}>Submit</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

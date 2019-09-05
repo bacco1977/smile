@@ -3,9 +3,10 @@
     height: auto;
     max-width: 100%;
     margin: 1em auto;
+    display: block;
 }
 
-.uploadButton {
+.sendButton {
     background: #f89422;
     color: #fff;
     border: none;
@@ -15,7 +16,42 @@
     margin: 2em 0;
 }
 
+.sendButton:disabled {
+    opacity: 0.3;
+}
+
 .pageTitle {
     text-align: center;
     font-family: 'Work Sans', sans-serif;
+}
+
+.uploadButton {
+    background: #f89422;
+    color: #fff;
+    border: 2px solid #f89422;
+    padding: 1em;
+    margin: 1em 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+.uploadButton:hover {
+    background: #fff;
+    color: #f89422;   
+}
+
+.uploadWrapper {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+}
+
+.uploadWrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
