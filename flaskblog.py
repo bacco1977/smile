@@ -100,6 +100,9 @@ def api_list():
 def success():
     if request.method == 'POST':
         print(request.files)
+        r = request.get(params = PARAMS)
+        data = r.json()
+        print(data)
         f = request.files['image']  
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         resp = make_response(json.dumps("Success"))
