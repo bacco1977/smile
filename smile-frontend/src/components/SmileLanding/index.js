@@ -36,7 +36,7 @@ export default class SmileLanding extends React.Component {
       });
     } else {
       let values = this.state.sortedValues;
-      values = values.filter(value => (value.name.toUpperCase().includes(event.target.value.toUpperCase())) || (value.pps.toUpperCase().includes(event.target.value.toUpperCase())));
+      values = values.filter(value => (value.name.toUpperCase().includes(event.target.value.toUpperCase())) || (value.patientId.toUpperCase().includes(event.target.value.toUpperCase())));
   
       this.setState({
         sortedValues: values
@@ -58,28 +58,32 @@ export default class SmileLanding extends React.Component {
         {this.state.sortedValues && !this.state.selectedPatient &&
         <div>
             <div className="row justify-content-center m-3">
-              <input className="form-control" placeholder="Search by Name or PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+              <input className="form-control" placeholder="Search by Name or patientId number" type="text" name ="patientId" onChange={this.onFormChange}/>
             </div>
             <table className="table mt-5">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
-                  <th scope="col">DOB</th>
-                  <th scope="col">Registration</th>
-                  <th scope="col">Sex</th>
-                  <th scope="col">PPS</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Date of Birth</th>
+                  <th scope="col">Registration Date</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Patient ID</th>
                   <th scope="col">Guardian</th>
+                  <th scope="col">Latest Similarity Score</th>
                 </tr>
               </thead>
               <tbody>
                 {this.state.sortedValues.map((value, index) => (
                   <tr>
                     <th className="btn-link" onClick={() => this.selectPatient(value)}>{value.name}</th>
+                    <td>{value.email}</td>
                     <td>{value.dob}</td>
                     <td>{value.register_date}</td>
-                    <td>{value.sex}</td>
-                    <td>{value.pps}</td>
-                    <td>{value.parent}</td>
+                    <td>{value.gender}</td>
+                    <td>{value.patientId}</td>
+                    <td>{value.guardian}</td>
+                    <td>{value.latest_score}</td>
                   </tr>
                 ))}
               </tbody>

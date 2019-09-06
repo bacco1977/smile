@@ -11,7 +11,7 @@ export default class ImageUpload extends React.Component {
             imgPreview: './assets/img/placeholder.jpg',
             username: null, 
             email: null,
-            pps: null, 
+            patientId: null, 
             guardian: null, 
             dob: null,
             registration: null,
@@ -38,7 +38,7 @@ export default class ImageUpload extends React.Component {
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
         data.append('username', this.state.username)
         data.append('email', this.state.email)
-        data.append('pps', this.state.pps)
+        data.append('patientId', this.state.patientId)
         data.append('guardian', this.state.guardian)
         data.append('dob', this.state.dob)
         data.append('registration', this.state.registration)
@@ -65,7 +65,7 @@ export default class ImageUpload extends React.Component {
             !this.state.fileUploaded ||
             !this.state.username ||
             !this.state.email ||
-            !this.state.pps ||
+            !this.state.patientId ||
             !this.state.guardian || 
             !this.state.dob ||
             !this.state.registration ||
@@ -88,26 +88,34 @@ export default class ImageUpload extends React.Component {
                         </div>
                     </div>
                     <div className="col-sm">
-                        <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="user name" type="text" name ="username" onChange={this.onFormChange}/>
+                       
+                        <div className="row justify-content-center mt-3">  
+                            <input className="form-control" placeholder="Full Name" type="text" name ="username" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter full name</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="email" type="email" name ="email" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Email" type="email" name ="email" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the email</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Patient ID" type="text" name ="patientId" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the Patient ID</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the Gender</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Guardian's Name" type="text" name ="guardian" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the Guardian's Name</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Date of Birth" name ="dob" type="date" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the Date of Birth</div>
                         </div>
                         <div className="row justify-content-center mt-3">
-                            <input className="form-control" placeholder="Registration date" name ="registration" type="date" onChange={this.onFormChange}/>
+                            <input className="form-control" placeholder="Registration Date" name ="registration" type="date" onChange={this.onFormChange}/>
+                            <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter the Registration Date</div>
                         </div>
                         <div className="row">
                             <button disabled={!this.checkValid()} className={styles.sendButton} onClick={this.fileUploadHandler}>Submit</button>
