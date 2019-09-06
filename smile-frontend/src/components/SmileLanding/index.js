@@ -83,7 +83,7 @@ export default class SmileLanding extends React.Component {
                     <td>{value.gender}</td>
                     <td>{value.patientId}</td>
                     <td>{value.guardian}</td>
-                    <td>{value.latest_score}</td>
+                    <td>{value.latest_score}%</td>
                   </tr>
                 ))}
               </tbody>

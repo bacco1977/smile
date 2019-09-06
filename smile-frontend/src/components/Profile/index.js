@@ -18,11 +18,8 @@ export default class Profile extends React.Component {
       <div className="container row">
         <div className ="col-6">
             <h2>{"Name: " + this.props.patient.name}</h2>
-            <h2>{"patientId: " + this.props.patient.patientId}</h2>
+            <h2>{"Patient Id: " + this.props.patient.patientId}</h2>
             <h2>{"Date of Birth: " + this.props.patient.dob}</h2>
-        </div>
-        <div className ="col-6">
-            <img src={this.state.imgPreview} alt="Preview" style={{width:"80%", height: "auto"}}/>
         </div>
       </div>
     );
