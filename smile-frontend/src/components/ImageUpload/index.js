@@ -12,7 +12,7 @@ export default class ImageUpload extends React.Component {
             imgPreview: './assets/img/placeholder.jpg',
             username: null, 
             email: null,
-            pps: null, 
+            patientId: null, 
             guardian: null, 
             dob: null,
             registration: null,
@@ -39,7 +39,7 @@ export default class ImageUpload extends React.Component {
         data.append('image', this.state.fileUploaded, this.state.fileUploaded.name)
         data.append('username', this.state.username)
         data.append('email', this.state.email)
-        data.append('pps', this.state.pps)
+        data.append('patientId', this.state.patientId)
         data.append('guardian', this.state.guardian)
         data.append('dob', this.state.dob)
         data.append('registration', this.state.registration)
@@ -66,7 +66,7 @@ export default class ImageUpload extends React.Component {
             !this.state.fileUploaded ||
             !this.state.username ||
             !this.state.email ||
-            !this.state.pps ||
+            !this.state.patientId ||
             !this.state.guardian || 
             !this.state.dob ||
             !this.state.registration ||
