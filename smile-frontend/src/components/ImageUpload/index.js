@@ -66,9 +66,9 @@ export default class ImageUpload extends React.Component {
             !this.state.fileUploaded ||
             !this.state.username ||
             !this.state.email ||
-            !this.state.patientId ||
             !this.state.guardian || 
             !this.state.dob ||
+            !this.state.patientId ||
             !this.state.registration ||
             !this.state.gender
         ){
@@ -105,6 +105,9 @@ export default class ImageUpload extends React.Component {
                             </div>
                             <div className="row justify-content-center mt-3">
                                 <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
+                            </div>
+                            <div className="row justify-content-center mt-3">
+                                <input className="form-control" placeholder="Patient ID" type="text" name ="patientId" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
                                 <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
