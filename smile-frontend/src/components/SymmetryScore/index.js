@@ -13,7 +13,7 @@ export default class SymmetryScore extends PureComponent {
         {value: (100- this.props.score)}
       ];
 
-    const COLORS = ['#f89422', '#fff']
+    const COLORS = ['#f89422', '#efefef']
 
     return (
     <div className="pt-4 d-flex justify-content-center flex-column align-items-center text-center">
