@@ -92,28 +92,25 @@ export default class ImageUpload extends React.Component {
                         </div>
                         <div className="col-sm">
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="user name" type="text" name ="username" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter full name" type="text" name ="username" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="email" type="email" name ="email" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter email" type="email" name ="email" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="PPS number" type="text" name ="pps" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter gender" type="text" name ="gender" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter guardian's name" type="text" name ="guardian" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Guardian" type="text" name ="guardian" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter patient ID" type="text" name ="patientId" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Patient ID" type="text" name ="patientId" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
-                            </div>
-                            <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Registration date" name ="registration" type="date" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Please enter registration date" name ="registration" type="date" onChange={this.onFormChange}/>
                             </div>
                             <div className="row">
                                 <button disabled={!this.checkValid()} className={styles.sendButton} onClick={this.fileUploadHandler}>Submit</button>
