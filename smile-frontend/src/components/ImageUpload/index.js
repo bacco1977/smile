@@ -92,25 +92,32 @@ export default class ImageUpload extends React.Component {
                         </div>
                         <div className="col-sm">
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Please enter full name" type="text" name ="username" onChange={this.onFormChange}/>
+                                <input className="form-control"  placeholder="Ex: John Doe" type="text" name ="username" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter full name</div>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Please enter email" type="email" name ="email" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Ex: john@doe.com" type="email" name ="email" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter email</div>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Please enter gender" type="text" name ="gender" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Ex: Male/Female" type="text" name ="gender" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter gender</div>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Please enter guardian's name" type="text" name ="guardian" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Ex: Jane Doe" type="text" name ="guardian" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter guardian's name</div>
                             </div>
                             <div className="row justify-content-center mt-3">
-                                <input className="form-control" placeholder="Please enter patient ID" type="text" name ="patientId" onChange={this.onFormChange}/>
+                                <input className="form-control" placeholder="Ex: 123456ABC" type="text" name ="patientId" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter patient ID</div>
                             </div>
                             <div className="row justify-content-center mt-3">
                                 <input className="form-control" placeholder="Please enter date of birth" name ="dob" type="date" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter date of birth</div>
                             </div>
                             <div className="row justify-content-center mt-3">
                                 <input className="form-control" placeholder="Please enter registration date" name ="registration" type="date" onChange={this.onFormChange}/>
+                                <div style={{ marginRight: 'auto', fontSize: '12px'}}>Please enter registration date</div>
                             </div>
                             <div className="row">
                                 <button disabled={!this.checkValid()} className={styles.sendButton} onClick={this.fileUploadHandler}>Submit</button>

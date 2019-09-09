@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  PieChart, Pie, Sector, Cell,
+  PieChart, Pie, Cell,
 } from 'recharts';
 
 
@@ -17,7 +17,7 @@ export default class SymmetryScore extends PureComponent {
 
     return (
     <div className="d-flex justify-content-center flex-column align-items-center">
-        <h1>Your symmetry score is {this.props.score}</h1>
+        <h1>{`Your symmetry score is ${this.props.score}%`}</h1>
         <PieChart width={220} height={400} onMouseEnter={this.onPieEnter}>
             <Pie
             data={data}
