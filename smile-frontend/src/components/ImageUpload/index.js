@@ -129,7 +129,7 @@ export default class ImageUpload extends React.Component {
                 <div>
                 {this.state.score &&
                     <React.Fragment>
-                        <SymmetryScore score={this.state.score}/>
+                        <SymmetryScore name={this.state.username} score={this.state.score}/>
                         <button className="btn btn-secondary" onClick={() =>{this.setState({score: null})}}>BACK</button>
                     </React.Fragment>
                 }
