@@ -21,6 +21,21 @@ export default class ImageUpload extends React.Component {
         }
     }
 
+    clearForm = () =>{
+        this.setState({
+            fileUploaded: null,
+            imgPreview: './assets/img/placeholder.jpg',
+            username: null, 
+            email: null,
+            patientId: null, 
+            guardian: null, 
+            dob: null,
+            registration: null,
+            gender: null,
+            score: null
+        })
+    }
+
     onFormChange = (event) =>{
         if(event.target.name === 'image'){
             this.setState({
@@ -130,7 +145,7 @@ export default class ImageUpload extends React.Component {
                 {this.state.score &&
                     <React.Fragment>
                         <SymmetryScore name={this.state.username} score={this.state.score}/>
-                        <button className="btn btn-secondary" onClick={() =>{this.setState({score: null})}}>BACK</button>
+                        <button className="btn btn-secondary" onClick={() =>{this.clearForm()}}>BACK</button>
                     </React.Fragment>
                 }
                 </div>
