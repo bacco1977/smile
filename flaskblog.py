@@ -63,7 +63,15 @@ def success():
         print ("image: " + image)
         scorevalue = (1-score(image))*100
         add_record(request.form['username'],request.form['email'],request.form['dob'],request.form['registration'],request.form['gender'],request.form['patientId'],request.form['guardian'],scorevalue)
+        if os.path.exists(image):
+                os.remove(image)
+        else:
+                print("The file does not exist")
         return str(scorevalue)
+	if os.path.exists(image):
+		os.remove(image)
+	else:
+		print("The file does not exist")
     return ''
 
 
@@ -74,5 +82,5 @@ def add_record(username, email, dob, registration, gender, patientId, guardian, 
     return ('', 204)
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
     
